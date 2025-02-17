@@ -46,7 +46,7 @@ Follow these steps to set up and run the project on your local machine:
    ```
 2. Navigate to the project directory:  
    ```bash
-   cd Movie-Portal
+   cd Movie-Freak
    ```
 3. Install dependencies:  
    ```bash
