@@ -51,26 +51,18 @@
 #### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/tanzid109/Movie-Portal.git
-```
+```bash
 cd Movie-Portal
-
-#### 2️⃣ Install dependencies
-```
+```bash
 npm install
-```
-### 3️⃣ Set up environment variables
-
-Create a .env file in the root directory and add your Firebase config:
-```
+```bash
 VITE_FIREBASE_API_KEY=your_api_key_here
 VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain_here
 VITE_FIREBASE_PROJECT_ID=your_project_id_here
 VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket_here
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id_here
 VITE_FIREBASE_APP_ID=your_app_id_here
-
-#### 4️⃣ Start the development server
-```
+```bash
 npm run dev
 
 
