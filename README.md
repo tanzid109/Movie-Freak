@@ -51,20 +51,20 @@ The project is built with **React.js** for the frontend and **Firebase** for bac
 #### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/tanzid109/Movie-Portal.git
-
+```bash
 cd Movie-Portal
-
+```bash
 npm install
-
+```bash
 VITE_FIREBASE_API_KEY=your_api_key_here
 VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain_here
 VITE_FIREBASE_PROJECT_ID=your_project_id_here
 VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket_here
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id_here
 VITE_FIREBASE_APP_ID=your_app_id_here
-
+```bash
 npm run dev
-
+```bash
 http://localhost:5173
 
 Movie-Portal/
@@ -78,10 +78,9 @@ Movie-Portal/
 │   └── styles/      # CSS styles
 ├── package.json
 └── README.md
-
+```bash
 npm run build
 
-.
 
 👨‍💻 Author
 
