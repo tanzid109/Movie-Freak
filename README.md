@@ -1,21 +1,21 @@
 # 🎬 Movie Portal
 
 ## 📌 Overview
-Movie Portal is a modern web application for movie enthusiasts to discover, manage, and organize their favorite movies. Built with cutting-edge technologies, it provides a seamless user experience with authentication, movie management, and personalized features.
+**Movie Portal** is a modern web application for movie enthusiasts to discover, manage, and organize their favorite movies. Built with cutting-edge technologies, it provides a seamless user experience with authentication, movie management, and personalized features.
 
 ---
 
-## 🚀 Main Technology Used
-The project is built with **React.js** for the frontend and **Firebase** for backend services including authentication, database, and hosting.
+## 🚀 Technology Stack
+- **Frontend:** React.js  
+- **Backend & Services:** Firebase (Authentication, Database, Hosting)  
 
 ---
 
 ## ✨ Key Features
-
 - 🔐 **User Authentication** – Secure login/signup with Firebase Authentication  
 - ➕ **Add Movies** – Intuitive interface to add new movies with details  
 - ❌ **Delete Movies** – Remove movies from your collection  
-- ⭐ **Add Favorite Movies** – Star and organize your preferred movies  
+- ⭐ **Favorite Movies** – Star and organize your preferred movies  
 - 🔍 **Smart Search** – Find movies quickly with advanced filtering  
 - 📱 **Responsive Design** – Seamless experience across all devices  
 
@@ -24,7 +24,7 @@ The project is built with **React.js** for the frontend and **Firebase** for bac
 ## 📦 Dependencies
 
 | Package | Version | Purpose |
-|----------|------------|-------------|
+|---------|---------|---------|
 | animate.css | ^4.1.1 | CSS animations library |
 | firebase | ^11.0.2 | Backend services (Auth, Database) |
 | localforage | ^1.10.0 | Offline data storage |
@@ -40,9 +40,9 @@ The project is built with **React.js** for the frontend and **Firebase** for bac
 ## 🖥️ Run Locally
 
 ### ✅ Prerequisites
-- Node.js (version 16 or higher)
-- npm or yarn
-- Git
+- Node.js (v16 or higher)  
+- npm or yarn  
+- Git  
 
 ---
 
@@ -51,37 +51,25 @@ The project is built with **React.js** for the frontend and **Firebase** for bac
 #### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/tanzid109/Movie-Portal.git
-```bash
 cd Movie-Portal
-```bash
+
+2️⃣ Install dependencies
+```
 npm install
-```bash
+
+3️⃣ Set up environment variables
+
+Create a .env file in the root directory and add your Firebase config:
+```
 VITE_FIREBASE_API_KEY=your_api_key_here
 VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain_here
 VITE_FIREBASE_PROJECT_ID=your_project_id_here
 VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket_here
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id_here
 VITE_FIREBASE_APP_ID=your_app_id_here
-```bash
+
+```
+4️⃣ Start the development server
 npm run dev
-```bash
-http://localhost:5173
-
-Movie-Portal/
-├── public/          # Static assets
-├── src/
-│   ├── components/  # Reusable components
-│   ├── pages/       # Page components
-│   ├── hooks/       # Custom React hooks
-│   ├── utils/       # Utility functions
-│   ├── services/    # Firebase services
-│   └── styles/      # CSS styles
-├── package.json
-└── README.md
-```bash
-npm run build
 
 
-👨‍💻 Author
-
-Created by Tanzid
