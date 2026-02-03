@@ -53,7 +53,6 @@
 git clone https://github.com/tanzid109/Movie-Portal.git
 ```
 cd Movie-Portal
-```
 #### 2️⃣ Install dependencies
 ```
 npm install
