@@ -75,6 +75,8 @@ VITE_FIREBASE_APP_ID=your_app_id_here
 ```
 npm run dev
 ```
+### Movie-Portal
+```
 Movie-Portal/
 ├── public/          # Static assets
 ├── src/             # Source code
@@ -86,6 +88,7 @@ Movie-Portal/
 │   └── styles/      # CSS styles
 ├── package.json     # Dependencies
 └── README.md        # Documentation
+```
 
 ### 📦 Build
 ```
