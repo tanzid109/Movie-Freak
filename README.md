@@ -77,15 +77,15 @@ npm run dev
 ```
 Movie-Portal/
 ├── public/          # Static assets
-├── src/
+├── src/             # Source code
 │   ├── components/  # Reusable components
 │   ├── pages/       # Page components
 │   ├── hooks/       # Custom React hooks
 │   ├── utils/       # Utility functions
 │   ├── services/    # Firebase services
 │   └── styles/      # CSS styles
-├── package.json
-└── README.md
+├── package.json     # Dependencies
+└── README.md        # Documentation
 
 ### 📦 Build
 ```
