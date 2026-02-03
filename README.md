@@ -76,3 +76,21 @@ VITE_FIREBASE_APP_ID=your_app_id_here
 npm run dev
 ```
 
+### Movie-Portal/
+├── public/          # Static assets
+├── src/
+│   ├── components/  # Reusable components
+│   ├── pages/       # Page components
+│   ├── hooks/       # Custom React hooks
+│   ├── utils/       # Utility functions
+│   ├── services/    # Firebase services
+│   └── styles/      # CSS styles
+├── package.json
+└── README.md
+
+```
+npm run build
+```
+### 👨‍💻 Author
+### Created by Tanzid
+
