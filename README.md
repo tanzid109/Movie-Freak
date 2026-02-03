@@ -52,6 +52,7 @@
 ```bash
 git clone https://github.com/tanzid109/Movie-Portal.git
 ```
+### Move to Folder
 cd Movie-Portal
 #### 2️⃣ Install dependencies
 ```
