@@ -21,25 +21,25 @@ const router = createBrowserRouter([
         path: "/",
         element: <Homepage></Homepage>,
         errorElement: <ErrorPage></ErrorPage>,
-        loader: () => fetch('https://assaingment-10-server.vercel.app/movie')
+        loader: () => fetch(`${import.meta.env.VITE_BASE_URL}/movie`)
     },
     {
         path: "/allmovies",
         element: <AllMovies></AllMovies>,
-        loader: () => fetch('https://assaingment-10-server.vercel.app/movie')
+        loader: () => fetch(`${import.meta.env.VITE_BASE_URL}/movie`)
     },
     {
         path: "/allmovies/moviedetails/:id",
-        element: 
+        element:
             <MovieDetails></MovieDetails>
         ,
-        loader: ({ params }) => fetch(`https://assaingment-10-server.vercel.app/movie/${params.id}`)
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_BASE_URL}/movie/${params.id}`)
     },
     {
         path: "/moviedetails/:id",
-        element: 
+        element:
             <MovieDetails></MovieDetails>,
-        loader: ({ params }) => fetch(`https://assaingment-10-server.vercel.app/movie/${params.id}`)
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_BASE_URL}/movie/${params.id}`)
     },
     {
         path: "/addmovie",
@@ -52,14 +52,14 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
             <UpdateMovie></UpdateMovie>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`https://assaingment-10-server.vercel.app/movie/${params.id}`)
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_BASE_URL}/movie/${params.id}`)
     },
     {
         path: "/myfavourite",
         element: <PrivateRoute>
             <MyFavourite></MyFavourite>
         </PrivateRoute>,
-        loader: () => fetch('https://assaingment-10-server.vercel.app/favmovie')
+        loader: () => fetch(`${import.meta.env.VITE_BASE_URL}/favmovie`)
     },
     {
         path: "/login",

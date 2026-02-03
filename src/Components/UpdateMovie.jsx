@@ -76,7 +76,7 @@ const UpdateMovie = () => {
             setErrors({});
             //data send to server
 
-            fetch(`https://assaingment-10-server.vercel.app/movie/${_id}`, {
+            fetch(`${import.meta.env.VITE_BASE_URL}/movie/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

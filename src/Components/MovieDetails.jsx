@@ -1,85 +1,148 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Star, Clock, Calendar } from "lucide-react";
 
-const MovieDetails = ({ movie, setMovie }) => {
+const MovieDetails = () => {
     const data = useLoaderData();
     const navigate = useNavigate();
-    const { _id, poster, title, genre, releaseYear, duration, rating, summary } = data
-    const handleDelete = _id => {
-        // console.log(_id);
+
+    const { _id, poster, title, genre, releaseYear, duration, rating, summary } =
+        data;
+
+    const handleDelete = (_id) => {
         Swal.fire({
-            title: "Are you sure?",
+            title: "Delete Movie?",
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonColor: "#ef4444",
+            confirmButtonText: "Delete",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://assaingment-10-server.vercel.app/movie/${_id}`, {
-                    method: 'DELETE',
+                fetch(`${import.meta.env.VITE_BASE_URL}/movie/${_id}`, {
+                    method: "DELETE",
                 })
-                    .then(res => res.json())
-                    .then(data => {
-                        // console.log(data);
+                    .then((res) => res.json())
+                    .then((data) => {
                         if (data.deletedCount > 0) {
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "Your movie has been deleted.",
-                                icon: "success"
-                            });
-                            navigate("/allmovies")
+                            Swal.fire("Deleted!", "Movie removed successfully", "success");
+                            navigate("/allmovies");
                         }
-                    })
+                    });
             }
         });
-    }
+    };
+
     const handleFavourite = async () => {
         try {
-            const response = await fetch('https://assaingment-10-server.vercel.app/favmovie', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', },
-                body: JSON.stringify({ poster, title, genre, releaseYear, duration, rating }),
+            await fetch(`${import.meta.env.VITE_BASE_URL}/favmovie`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    poster,
+                    title,
+                    genre,
+                    releaseYear,
+                    duration,
+                    rating,
+                }),
             });
-            const result = await response.json();
-            // console.log(result);
-            Swal.fire({
-                title: "Added!",
-                text: "Your movie has been added to favourite.",
-                icon: "success"
-            });
-            navigate("/")
+
+            Swal.fire("Added!", "Movie added to favourites", "success");
+            navigate("/");
+        } catch (error) {
+            console.error(error);
         }
-        catch (error) { console.error("There was an error adding the movie to favorites!", error); }
-    }
+    };
+
     return (
-        <div>
-            <div>
-                <Navbar></Navbar>
-            </div>
-            <div className="p-2">
-                <div className="min-h-screen flex lg:flex-row flex-col justify-center items-center px-5 my-5 bg-gray-800 shadow-lg  rounded-lg">
-                    <figure className="flex-1">
+        <div className="bg-black min-h-screen text-white">
+            <Navbar />
+
+            {/* Hero Background */}
+            <div
+                className="relative w-full min-h-screen bg-cover bg-center"
+                style={{ backgroundImage: `url(${poster})` }}
+            >
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+
+                {/* Content */}
+                <div className="relative z-10 max-w-6xl mx-auto px-5 py-16 flex flex-col lg:flex-row gap-10 items-center">
+
+                    {/* Poster */}
+                    <div className="flex-1">
                         <img
                             src={poster}
-                            alt="Movie Poster"
-                            className=" p-5"
+                            alt={title}
+                            className="rounded-2xl shadow-2xl hover:scale-105 transition duration-500"
                         />
-                    </figure>
-                    <div className="flex-1 justify-center items-center p-4 text-white">
-                        <h2 className="lg:text-6xl text-2xl mb-4 text-yellow-500 uppercase text-center font-bold">{title}</h2>
-                        <p className="text-xl"><strong>Genre : </strong> {genre}</p>
-                        <p className="text-xl"><strong>Duration : </strong>{duration} min</p>
-                        <p className="text-xl"><strong>Release Year : </strong> {releaseYear}</p>
-                        <p className="text-xl"><strong>Rating : </strong> {rating}</p>
-                        <p className="text-xl"><strong>Summary : </strong> {summary}</p>
-                        <div className="mt-5 flex lg:flex-row flex-col gap-2">
-                            <button onClick={() => handleDelete(_id)} className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform">Delete Movie</button>
-                            <button onClick={handleFavourite} className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform">Add To Favourite</button>
-                            <Link to={`/updatemovie/${_id}`} className="btn btn-outline text-base rounded-br-2xl rounded-tl-3xl font-medium bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform">Update Movie</Link>
+                    </div>
+
+                    {/* Movie Info */}
+                    <div className="flex-1 space-y-6">
+
+                        <h1 className="text-3xl md:text-5xl font-bold text-yellow-400">
+                            {title}
+                        </h1>
+
+                        {/* Info Badges */}
+                        <div className="flex flex-wrap gap-4 text-sm">
+
+                            <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+                                🎬 {genre}
+                            </span>
+
+                            <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+                                <Clock size={16} /> {duration} min
+                            </span>
+
+                            <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+                                <Calendar size={16} /> {releaseYear}
+                            </span>
+
+                            <span className="flex items-center gap-2 bg-yellow-500 text-black px-4 py-2 rounded-full font-semibold">
+                                <Star size={16} fill="currentColor" /> {rating}
+                            </span>
+
+                        </div>
+
+                        {/* Summary */}
+                        <p className="text-gray-300 leading-relaxed">
+                            {summary}
+                        </p>
+
+                        {/* Buttons */}
+                        <div className="flex flex-wrap gap-4 pt-4">
+
+                            <button
+                                onClick={() => handleDelete(_id)}
+                                className="px-6 py-3 rounded-xl font-semibold 
+                bg-gradient-to-r from-red-500 to-red-700 
+                hover:scale-105 transition duration-300 shadow-lg"
+                            >
+                                Delete Movie
+                            </button>
+
+                            <button
+                                onClick={handleFavourite}
+                                className="px-6 py-3 rounded-xl font-semibold 
+                bg-gradient-to-r from-yellow-400 to-orange-500 text-black
+                hover:scale-105 transition duration-300 shadow-lg"
+                            >
+                                Add To Favourite
+                            </button>
+
+                            <Link
+                                to={`/updatemovie/${_id}`}
+                                className="px-6 py-3 rounded-xl font-semibold 
+                bg-white/10 hover:bg-white/20 
+                transition duration-300 shadow-lg"
+                            >
+                                Update Movie
+                            </Link>
+
                         </div>
                     </div>
                 </div>
@@ -87,4 +150,5 @@ const MovieDetails = ({ movie, setMovie }) => {
         </div>
     );
 };
+
 export default MovieDetails;

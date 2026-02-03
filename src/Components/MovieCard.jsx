@@ -2,19 +2,52 @@ import { Link, useLoaderData } from "react-router-dom";
 import CategoryCard from "./CategoryCard";
 
 const MovieCard = () => {
-    const data = useLoaderData()
+    const data = useLoaderData();
+
     return (
-        <div className="text-center mb-5">
-            <div>
-                <p className="text-3xl text-center text-white p-5 bg-gray-900 font-bold mb-5">Featured Movies</p>
+        <section className="relative py-16 bg-black text-white">
+
+            {/* Background Glow */}
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-black opacity-80" />
+
+            <div className="relative z-10 max-w-7xl mx-auto px-5">
+
+                {/* Header */}
+                <div className="text-center mb-12 space-y-3">
+                    <h2 className="text-3xl md:text-5xl font-extrabold 
+          bg-gradient-to-r from-yellow-400 to-orange-500 
+          bg-clip-text text-transparent">
+                        Featured Movies
+                    </h2>
+
+                    <div className="w-24 h-1 mx-auto bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full" />
+
+                    <p className="text-gray-400 text-sm md:text-base">
+                        Discover trending and recommended movies for you
+                    </p>
+                </div>
+
+                {/* Movie Grid */}
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
+                    {data?.slice(0, 6).map((item) => (
+                        <CategoryCard key={item._id} item={item} />
+                    ))}
+                </div>
+
+                {/* See All Button */}
+                <div className="text-center mt-14">
+                    <Link
+                        to="/allmovies"
+                        className="inline-block px-8 py-3 rounded-2xl font-semibold 
+            bg-gradient-to-r from-yellow-400 to-orange-500 text-black
+            hover:scale-110 transition duration-300 shadow-lg"
+                    >
+                        Explore All Movies
+                    </Link>
+                </div>
+
             </div>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mx-auto w-11/12 gap-5'>
-                {
-                    data.slice(0,6).map((item)=><CategoryCard key={item._id} item={item}></CategoryCard>)
-                }
-            </div>
-            <Link to="/allmovies" className="btn btn-outline rounded-br-2xl rounded-tl-3xl font-bold bg-gradient-to-b from-gray-600 to-gray-900 text-yellow-300 uppercase tracking-wide border-purple-500 shadow-md hover:shadow-white hover:scale-105 hover:text-white transition-transform mt-10">See All Movies</Link>
-        </div>
+        </section>
     );
 };
 

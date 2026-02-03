@@ -12,7 +12,7 @@ const AddMovie = () => {
         const photo = form.photo.value;
         const movie = { title, rating, genre, duration, year, photo }
         // console.log(movie);
-        fetch('https://assaingment-10-server.vercel.app/movie', {
+        fetch(`${import.meta.env.VITE_BASE_URL}/movie`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
