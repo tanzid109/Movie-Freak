@@ -53,7 +53,7 @@
 git clone https://github.com/tanzid109/Movie-Portal.git
 ```
 cd Movie-Portal
-
+```
 #### 2️⃣ Install dependencies
 ```
 npm install
@@ -68,7 +68,7 @@ VITE_FIREBASE_PROJECT_ID=your_project_id_here
 VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket_here
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id_here
 VITE_FIREBASE_APP_ID=your_app_id_here
-
+```
 #### 4️⃣ Start the development server
 ```
 npm run dev
