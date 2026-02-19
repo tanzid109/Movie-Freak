@@ -5,12 +5,12 @@
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
 }
-.active{
-    color: white;
-    background-image: linear-gradient(rgb(35, 204, 13), rgb(201, 204, 6));
-    padding: 5px;
-    border-radius: 5px;
+.active {
+  color: white;
+  background-image: linear-gradient(rgb(35, 204, 13), rgb(201, 204, 6));
+  padding: 5px;
+  border-radius: 5px;
 }
 .star-svg {
-    display: inline-flex;
+  display: inline-flex;
 }
